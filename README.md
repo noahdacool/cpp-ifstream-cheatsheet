@@ -1,7 +1,7 @@
 # C++ <code>ifstream.eof()</code> Cheatsheet
 This C++ script opens multiple text files with various end-of-line byte combinations and compares the values of <code>infile.eof()</code> and <code>infile.fail()</code> at the end of each file.
 
-A detailed description of the displayed information can be found in the in-code documentation. In summary, each column of `1's` and `0's` is a snapshot of the values of <code>.eof()</code> and <code>.fail()</code> after a specified number of <code>ifstream >> string</code> extractions. The number at the top of the column indicates the number of extractions the occurred before the snapshot; for example, the first column shows the values returned by <code>.eof()</code> and <code>.fail()</code> before any extractions take place, the second column shows the values after the first extraction, and so forth.
+A detailed description of the displayed information can be found in the in-code documentation. In summary, each column of `1's` and `0's` is a snapshot of the values of <code>.eof()</code> and <code>.fail()</code> after a specified number of <code>ifstream >> string</code> extractions. The number at the top of the column indicates the number of extractions that occurred before the snapshot; for example, the first column shows the values returned by <code>.eof()</code> and <code>.fail()</code> before any extractions take place, the second column shows the values after the first extraction, and so forth.
 
 *The default output is shown below:*
 ```
@@ -30,7 +30,7 @@ FAIL   0   0  -1- -1- -1-  bytes:    41 42 43
 ```
 ## *Important conclusions from the above test:*
 
-The function <code>.eof()</code> returns the same values whether the file ends in a <code>carriage return (0x0D)</code>, a <code>line feed (0x0A)</code>, or both in that order. Both function returns `1` following the first extraction attempt that extracts no data.
+The function <code>.eof()</code> returns the same values whether the file ends in a <code>carriage return (0x0D)</code>, a <code>line feed (0x0A)</code>, or both in that order. The function returns `1` following the first extraction attempt that extracts no data.
 
 However, this is not the case if the file ends without a carriage return or a line feed (i.e. the last byte in the file is a character, not a whitespace or control character). In this case, <code>.eof()</code> returns `1` following the last extraction attempt that successfully extracts data.
 
